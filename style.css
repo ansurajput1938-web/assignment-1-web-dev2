@@ -1,87 +1,239 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #8fb7ff, #8fd3c7);
-    padding: 20px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", sans-serif;
 }
 
-header {
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
+body{
+    min-height:100vh;
+    background: linear-gradient(120deg,#8faef4,#9fd5d6);
 }
 
-.container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
+/* main container */
+
+.container{
+    max-width:1100px;
+    margin:20px auto;
+    padding:10px;
 }
 
-.box {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    width: 360px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+.container h1{
+    text-align:center;
+    color:#ffffff;
+    font-weight:600;
+    margin-bottom:18px;
 }
 
-.box h2 {
-    color: #5b6ce1;
+/* dashboard layout */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:360px 1fr;
+    gap:22px;
+    align-items:start;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
+/* common card style */
+
+.form-section,
+.events-section,
+.demo-section{
+    background:#ffffff;
+    border-radius:14px;
+    padding:18px;
+    box-shadow:0 12px 28px rgba(0,0,0,0.18);
 }
 
-input, select, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 4px;
+/* ---------------- Add Event ---------------- */
+
+.form-section h2{
+    color:#5d6fe3;
+    margin-bottom:14px;
 }
 
-textarea {
-    resize: none;
-    height: 70px;
+.form-group{
+    margin-bottom:12px;
 }
 
-button {
-    margin-top: 15px;
-    width: 100%;
-    padding: 10px;
-    background: linear-gradient(to right, #667eea, #764ba2);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+label{
+    display:block;
+    font-size:13px;
+    color:#444;
+    margin-bottom:4px;
 }
 
-.action-btns {
-    display: flex;
-    gap: 10px;
+input,
+select,
+textarea{
+    width:100%;
+    padding:8px 10px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    outline:none;
 }
 
-.action-btns button {
-    width: 50%;
+textarea{
+    height:70px;
+    resize:none;
 }
 
-#events .event {
-    background: #eef2ff;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 6px;
+form button{
+    width:100%;
+    margin-top:10px;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:white;
+    font-weight:600;
+    background:linear-gradient(90deg,#5f6be1,#7b4bb7);
 }
 
-.full {
-    width: 100%;
-    margin-top: 25px;
+/* ---------------- My Events ---------------- */
+
+.events-section h2{
+    color:#5d6fe3;
+    margin-bottom:10px;
 }
 
-.dom-demo {
-    background: #f5f5f5;
-    padding: 15px;
-    border-radius: 6px;
+.controls{
+    display:flex;
+    gap:12px;
+    margin-bottom:14px;
+}
+
+.controls button{
+    flex:1;
+    padding:8px 10px;
+    border:none;
+    border-radius:9px;
+    cursor:pointer;
+    color:white;
+    font-weight:600;
+    background:linear-gradient(90deg,#5f6be1,#7b4bb7);
+}
+
+/* event list */
+
+#eventContainer{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+/* event card */
+
+#eventContainer > div{
+    position:relative;
+    padding:14px 16px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#eef2f7,#dfe6ef);
+    box-shadow:0 6px 14px rgba(0,0,0,0.15);
+}
+
+#eventContainer h3{
+    color:#333;
+    margin-bottom:4px;
+    font-size:18px;
+}
+
+#eventContainer > div > div{
+    font-size:13px;
+    color:#666;
+}
+
+/* category badge */
+
+#eventContainer span{
+    display:inline-block;
+    margin-top:6px;
+    padding:3px 10px;
+    border-radius:14px;
+    font-size:12px;
+    background:#5f6be1;
+    color:white;
+}
+
+/* description */
+
+#eventContainer p{
+    margin-top:6px;
+    font-size:13px;
+    color:#444;
+}
+
+/* delete button */
+
+.delete-btn{
+    position:absolute;
+    top:8px;
+    right:8px;
+    width:22px;
+    height:22px;
+    border:none;
+    border-radius:50%;
+    background:#ff6b6b;
+    color:white;
+    font-size:12px;
+    cursor:pointer;
+}
+
+/* empty state */
+
+.empty-state{
+    text-align:center;
+    padding:24px 10px;
+    color:#777;
+    background:#f3f5fb;
+    border-radius:12px;
+}
+
+/* ---------------- DOM Demo ---------------- */
+
+.demo-section{
+    margin-top:22px;
+}
+
+.demo-section h2{
+    color:#5d6fe3;
+    margin-bottom:10px;
+}
+
+.demo-box{
+    background:#f5f6fb;
+    border-radius:10px;
+    padding:12px;
+}
+
+.demo-content{
+    background:white;
+    border-radius:8px;
+    padding:12px;
+    font-size:14px;
+    color:#444;
+    line-height:1.6;
+    border:1px solid #e5e7ef;
+}
+
+<div class="demo-section">
+
+    <h2>DOM Manipulation Demo</h2>
+
+    <div class="demo-header">
+        innerText vs innerHTML vs textContent
+    </div>
+
+    <div class="demo-content" id="demoContent"></div>
+
+    <div id="keyInfo">You pressed: </div>
+
+</div>
+
+/* ---------------- responsive ---------------- */
+
+@media(max-width:900px){
+    .dashboard{
+        grid-template-columns:1fr;
+    }
 }
