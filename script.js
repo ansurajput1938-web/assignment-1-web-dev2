@@ -65,3 +65,18 @@ eventForm.addEventListener("submit", (event) => {
 clearAllBtn.addEventListener("click", () => {
     eventContainer.innerHTML = `<div class="empty-state">No events added yet.</div>`;
 })
+const demoContent = document.getElementById("demoContent");
+const keyInfo = document.getElementById("keyInfo");
+
+const sampleHTML = "<strong>Bold Text</strong>    with spaces";
+
+demoContent.innerHTML = `
+<p><b>Original HTML:</b> ${sampleHTML}</p>
+<p><b>innerHTML:</b> ${sampleHTML}</p>
+<p><b>innerText:</b> ${sampleHTML}</p>
+<p><b>textContent:</b> ${sampleHTML}</p>
+`;
+
+document.addEventListener("keydown", function (e) {
+    keyInfo.textContent = "You pressed: " + e.key;
+});
